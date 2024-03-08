@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../prisma/node_modules/.prisma/client'
 import { error } from 'console'
 
 const prisma = new PrismaClient()

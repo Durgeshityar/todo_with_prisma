@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import axios from 'axios'
 
 export default function Signup() {
   const [username, setUsername] = useState('')
@@ -53,17 +52,30 @@ export default function Signup() {
       </div>
       <button
         className="border border-slate-500 rounded-sm text-white bg-black"
-        onClick={() => {
-          axios
-            .post('http://localhost:3000/createUser', {
-              username: username,
-              password: password,
-              firstName: firstName,
-              lastName: lastName,
+        onClick={async () => {
+          try {
+            const response = await fetch('http://localhost:3000/createUser', {
+              method: 'POST',
+              body: JSON.stringify({
+                username: username,
+                firstName: firstName,
+                lastName: lastName,
+                password: password,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
             })
-            .then((r) => {
-              console.log(r)
-            })
+
+            if (response.ok) {
+              const data = await response.json()
+              console.log(data) // Log the response data
+            } else {
+              console.error('Failed to create user')
+            }
+          } catch (error) {
+            console.error('Error creating user:', error)
+          }
         }}
       >
         Signup

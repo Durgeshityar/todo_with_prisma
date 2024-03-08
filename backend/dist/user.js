@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUser = exports.updateUser = exports.insertUser = void 0;
-const client_1 = require("@prisma/client");
+const client_1 = require("../prisma/node_modules/.prisma/client");
 const prisma = new client_1.PrismaClient();
 // creating new user
 function insertUser(username, password, firstName, lastName) {

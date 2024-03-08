@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTodoAndUserDetails = exports.getTodo = exports.createTodo = void 0;
-const client_1 = require("@prisma/client");
+const client_1 = require("../prisma/node_modules/.prisma/client");
 const console_1 = require("console");
 const prisma = new client_1.PrismaClient();
 //Creating Todos
